@@ -4,7 +4,7 @@
   "description": "The core clientkit package",
   "main": "app.js",
   "bin": {
-    "clientkit": "app.js"
+    "clientkit": "bin.js"
   },
   "scripts": {
     "test": "tape test/test.*.js | tap-spec"
