@@ -25,6 +25,7 @@
   "homepage": "https://github.com/firstandthird/clientkit-core#readme",
   "dependencies": {
     "async": "^2.1.2",
+    "clientkit-task": "0.0.7",
     "confi": "4.0.1",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
