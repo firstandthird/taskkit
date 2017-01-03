@@ -31,11 +31,20 @@ let argv = yargs
 .env(true)
 .argv;
 
-const main = () => {
+const main = (options) => {
   // packages that use clientkit-core as a dependency can over-ride any argv's they want:
   log(['clientkit'], `Using local config directory: ${argv.config}, environment is "${argv.env}", version is ${require('./package.json').version}`);
   const clientkitConf = path.join(process.cwd(), 'conf');
-  configLoader(clientkitConf, argv.config, argv.env, (err, conf) => {
+  // will try to load the 'clientkit.yaml' from the project dir:
+  let configPaths = [clientkitConf, argv.config, {
+    env: 'default',
+    path: argv.config,
+    prefix: 'clientkit'
+  }];
+  if (options && options.confDirectories) {
+    configPaths = configPaths.concat(options.confDirectories);
+  }
+  configLoader(configPaths, argv.env, (err, conf) => {
     if (err) {
       log(['clientkit'], err);
     }
@@ -55,7 +64,8 @@ const main = () => {
       task = cmd;
     }
     log(['clientkit'], `Running ${task}...`);
-    loadTasks(conf, log, (loadErr, runner) => {
+    const pluginDirectories = options && options.pluginDirectories ? options.pluginDirectories : [];
+    loadTasks(conf, pluginDirectories, log, (loadErr, runner) => {
       if (loadErr) {
         throw loadErr;
       }
