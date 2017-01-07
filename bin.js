@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-const main = require('./app.js');
+const main = require('./index.js');
 main();
