@@ -39,8 +39,7 @@ const main = (configPaths, context) => {
     env: argv.env,
     path: process.cwd(),
     prefix: 'clientkit'
-  }
-);
+  });
   context.CONFIGDIR = argv.config;
   configLoader(configPaths, context, argv.env, (err, conf) => {
     if (err) {
