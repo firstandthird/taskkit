@@ -26,7 +26,6 @@
   "dependencies": {
     "async": "^2.1.2",
     "confi": "4.0.1",
-    "lodash.defaults": "^4.2.0",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
     "parent-require": "^1.0.0",
