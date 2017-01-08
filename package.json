@@ -1,10 +1,10 @@
 {
   "name": "clientkit-core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The core clientkit package",
-  "main": "app.js",
+  "main": "index.js",
   "bin": {
-    "clientkit": "bin.js"
+    "clientkit-core": "bin.js"
   },
   "scripts": {
     "test": "tape test/test.*.js | tap-spec"
@@ -29,6 +29,7 @@
     "lodash.defaults": "^4.2.0",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
+    "parent-require": "^1.0.0",
     "runtask": "0.0.5",
     "yargs": "^6.5.0"
   },
