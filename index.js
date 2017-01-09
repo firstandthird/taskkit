@@ -33,9 +33,13 @@ let argv = yargs
 
 const main = (configPaths, context) => {
   configPaths = configPaths || [];
-  // packages that use clientkit-core as a dependency can over-ride any argv's they want:
   log(['clientkit'], `Using local config directory: ${argv.config}, environment is "${argv.env}", version is ${require('./package.json').version}`);
   configPaths.push(argv.config);
+  configPaths.push({
+    env: argv.env,
+    path: process.cwd(),
+    prefix: 'clientkit'
+  });
   context.CONFIGDIR = argv.config;
   configLoader(configPaths, context, argv.env, (err, conf) => {
     if (err) {
