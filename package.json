@@ -25,10 +25,12 @@
   "homepage": "https://github.com/firstandthird/clientkit-core#readme",
   "dependencies": {
     "async": "^2.1.2",
+    "clientkit-task": "0.0.8",
     "confi": "4.0.1",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
     "parent-require": "^1.0.0",
+    "purdy": "^2.2.0",
     "runtask": "0.0.5",
     "yargs": "^6.5.0"
   },
