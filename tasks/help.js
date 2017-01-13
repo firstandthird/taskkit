@@ -25,15 +25,15 @@ class HelpTask extends RunKitTask {
     this.log(`-----    runkit Version ${require('../package.json').version} Help Display ------`);
     this.log('(set help.enabled to "false" to hide this info )');
     this.log('Registered tasks: ');
-    Object.keys(this.runner.tasks).forEach((taskName) => {
-      const task = this.runner.tasks[taskName];
+    Object.keys(this.kit.runner.tasks).forEach((taskName) => {
+      const task = this.kit.runner.tasks[taskName];
       if (task.options) {
         this.log(`  "${task.name}": ${task.description}`);
       }
     });
     this.log('Named Task Sets:');
-    Object.keys(this.runner.tasks).forEach((taskName) => {
-      const task = this.runner.tasks[taskName];
+    Object.keys(this.kit.runner.tasks).forEach((taskName) => {
+      const task = this.kit.runner.tasks[taskName];
       if (!task.forEach) {
         return;
       }
