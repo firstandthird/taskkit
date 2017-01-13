@@ -1,4 +1,10 @@
 
+0.0.6 / 2017-01-13
+==================
+
+  * pass in logger to work with current version of runkit-task
+  * fixed help task
+
 0.0.5 / 2017-01-13
 ==================
 
