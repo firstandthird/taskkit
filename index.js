@@ -36,7 +36,7 @@ const main = (options) => {
   options = options || {};
   const configPaths = options.configPaths || [];
   const context = options.context || {};
-  const name = options.name || 'clientkit';
+  const name = options.name || 'runkit';
   const version = options.version || require('./package.json').version;
   const env = argv.env;
   log([name], `Using config directory: ${argv.config}, environment is "${env}", version is ${version}`);

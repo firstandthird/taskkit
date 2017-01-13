@@ -26,7 +26,7 @@
   "homepage": "https://github.com/firstandthird/runkit#readme",
   "dependencies": {
     "async": "^2.1.2",
-    "clientkit-task": "0.0.9",
+    "runkit-task": "0.0.10",
     "confi": "4.1.0",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",

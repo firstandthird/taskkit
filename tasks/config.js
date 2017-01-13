@@ -1,10 +1,10 @@
 'use strict';
 const purdy = require('purdy');
-const ClientKitTask = require('clientkit-task');
+const RunKitTask = require('runkit-task');
 
-class ConfigTask extends ClientKitTask {
+class ConfigTask extends RunKitTask {
   get description() {
-    return 'Prints out the config that clientkit is using';
+    return 'Prints out the config';
   }
 
   execute(allDone) {

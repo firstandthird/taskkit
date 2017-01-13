@@ -1,7 +1,7 @@
 'use strict';
-const ClientKitTask = require('clientkit-task');
+const RunKitTask = require('runkit-task');
 
-class HelpTask extends ClientKitTask {
+class HelpTask extends RunKitTask {
   get description() {
     return 'Prints various help info about your tasks';
   }
