@@ -3,9 +3,9 @@
 const path = require('path');
 const yargs = require('yargs');
 const Logr = require('logr');
-const configLoader = require('./lib/config');
 const loadTasks = require('./lib/load-tasks');
 const async = require('async');
+const LoadConfig = require('./lib/load-config');
 
 const log = new Logr({
   type: 'cli-fancy',
@@ -32,33 +32,30 @@ const argv = yargs
   .env(true)
   .argv;
 
-const main = (configPaths, context) => {
-  configPaths = configPaths || [];
-  context = context || {};
-  log(['clientkit'], `Using local config directory: ${argv.config}, environment is "${argv.env}", version is ${require('./package.json').version}`);
+const main = (options) => {
+  options = options || {};
+  const configPaths = options.configPaths || [];
+  const context = options.context || {};
+  const name = options.name || 'clientkit';
+  const version = options.version || require('./package.json').version;
+  const env = argv.env;
+  log([name], `Using config directory: ${argv.config}, environment is "${env}", version is ${version}`);
 
   configPaths.push(argv.config);
   configPaths.push({
     env: argv.env,
     path: process.cwd(),
-    prefix: 'clientkit'
+    prefix: name
   });
   context.CONFIGDIR = argv.config;
 
   async.autoInject({
-    config(done) {
-      configLoader(configPaths, context, argv.env, (err, conf) => {
-        if (err) {
-          return done(err);
-        }
-        if (!conf) {
-          return done(new Error('configuration not found'));
-        }
-        if (conf.core) {
-          return done(new Error('please upgrade your config to the new version'));
-        }
-        done(null, conf);
-      });
+    loadConfig(done) {
+      const config = new LoadConfig(name, env, configPaths, context);
+      done(null, config);
+    },
+    config(loadConfig, done) {
+      done(null, loadConfig.get());
     },
     task(done) {
       let task = '';
@@ -70,26 +67,18 @@ const main = (configPaths, context) => {
       } else {
         task = cmd;
       }
-      log(['clientkit'], `Running ${task}...`);
+      log([name], `Running ${task}...`);
       done(null, task);
     },
-    registerBuiltIn(config, done) {
-      config.tasks.help = path.join(__dirname, 'tasks/help');
-      config.tasks.config = path.join(__dirname, 'tasks/config');
-      config.config = {
-        needsEntireConfig: true
-      };
-      done();
-    },
-    runner(config, registerBuiltIn, done) {
-      loadTasks(config, log, done);
+    runner(config, loadConfig, done) {
+      loadTasks(config, log, loadConfig, done);
     },
     runTask(runner, task, done) {
       runner.run(task, done);
     }
   }, (err, results) => {
     if (err) {
-      log(['clientkit', 'error'], err);
+      log([name, 'error'], err);
     }
   });
 };

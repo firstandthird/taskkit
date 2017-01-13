@@ -8,7 +8,7 @@ class ConfigTask extends ClientKitTask {
   }
 
   execute(allDone) {
-    const clone = Object.assign({}, this.options);
+    const clone = Object.assign({}, this.kit.config);
     delete clone.ENV;
 
     purdy(clone, {
