@@ -1,6 +1,6 @@
 {
   "name": "runkit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Task runner",
   "main": "index.js",
   "bin": {
