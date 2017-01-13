@@ -26,7 +26,7 @@ const argv = yargs
   })
   .option('config', {
     describe: 'a path to your configuration files',
-    default: path.join(process.cwd(), 'clientkit')
+    default: path.join(process.cwd(), 'runkit')
   })
   .help('h')
   .env(true)

@@ -1,28 +1,29 @@
 {
-  "name": "clientkit-core",
+  "name": "runkit",
   "version": "0.0.4",
-  "description": "The core clientkit package",
+  "description": "Task runner",
   "main": "index.js",
   "bin": {
-    "clientkit-core": "bin.js"
+    "runkit": "bin.js"
   },
   "scripts": {
     "test": "tape test/test.*.js | tap-spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firstandthird/clientkit-core.git"
+    "url": "git+https://github.com/firstandthird/runkit.git"
   },
   "keywords": [
+    "task",
     "clientkit",
-    "core"
+    "runner"
   ],
   "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firstandthird/clientkit-core/issues"
+    "url": "https://github.com/firstandthird/runkit/issues"
   },
-  "homepage": "https://github.com/firstandthird/clientkit-core#readme",
+  "homepage": "https://github.com/firstandthird/runkit#readme",
   "dependencies": {
     "async": "^2.1.2",
     "clientkit-task": "0.0.9",
