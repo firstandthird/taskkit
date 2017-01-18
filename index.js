@@ -25,8 +25,7 @@ const argv = yargs
     default: 'dev'
   })
   .option('config', {
-    describe: 'a path to your configuration files',
-    default: path.join(process.cwd(), 'runkit')
+    describe: 'a path to your configuration files'
   })
   .help('h')
   .env(true)
@@ -37,17 +36,18 @@ const main = (options) => {
   const configPaths = options.configPaths || [];
   const context = options.context || {};
   const name = options.name || 'runkit';
+  const configPath = argv.config || path.join(process.cwd(), name);
   const version = options.version || require('./package.json').version;
   const env = argv.env;
-  log([name], `Using config directory: ${argv.config}, environment is "${env}", version is ${version}`);
+  log([name], `Using config directory: ${configPath}, environment is "${env}", version is ${version}`);
 
-  configPaths.push(argv.config);
+  configPaths.push(configPath);
   configPaths.push({
     env: argv.env,
     path: process.cwd(),
     prefix: name
   });
-  context.CONFIGDIR = argv.config;
+  context.CONFIGDIR = configPath;
 
   async.autoInject({
     loadConfig(done) {
