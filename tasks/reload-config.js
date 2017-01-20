@@ -1,8 +1,8 @@
 'use strict';
 
-const RunKitTask = require('runkit-task');
+const TaskKitTask = require('taskkit-task');
 
-class ReloadConfigTask extends RunKitTask {
+class ReloadConfigTask extends TaskKitTask {
   get description() {
     return 'Reload your project config files when changes are made to them';
   }
@@ -16,7 +16,7 @@ class ReloadConfigTask extends RunKitTask {
     const config = this.kit.loadConfig.get();
     Object.keys(this.kit.runner.tasks).forEach((taskName) => {
       const task = this.kit.runner.tasks[taskName];
-      if (task instanceof RunKitTask) {
+      if (task instanceof TaskKitTask) {
         const taskConfig = config[taskName];
         task.updateOptions(taskConfig);
       }

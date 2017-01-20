@@ -35,7 +35,7 @@ const main = (options) => {
   options = options || {};
   const configPaths = options.configPaths || [];
   const context = options.context || {};
-  const name = options.name || 'runkit';
+  const name = options.name || 'taskkit';
   const configPath = argv.config || path.join(process.cwd(), name);
   const version = options.version || require('./package.json').version;
   const env = argv.env;

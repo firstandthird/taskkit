@@ -1,8 +1,8 @@
 'use strict';
 const purdy = require('purdy');
-const RunKitTask = require('runkit-task');
+const TaskKitTask = require('taskkit-task');
 
-class ConfigTask extends RunKitTask {
+class ConfigTask extends TaskKitTask {
   get description() {
     return 'Prints out the config';
   }
