@@ -1,7 +1,7 @@
 'use strict';
-const RunKitTask = require('runkit-task');
+const TaskKitTask = require('taskkit-task');
 
-class HelpTask extends RunKitTask {
+class HelpTask extends TaskKitTask {
   get description() {
     return 'Prints various help info about your tasks';
   }
@@ -22,7 +22,7 @@ class HelpTask extends RunKitTask {
   }
 
   execute(allDone) {
-    this.log(`-----    runkit Version ${require('../package.json').version} Help Display ------`);
+    this.log(`-----    taskkit Version ${require('../package.json').version} Help Display ------`);
     this.log('(set help.enabled to "false" to hide this info )');
     this.log('Registered tasks: ');
     Object.keys(this.kit.runner.tasks).forEach((taskName) => {
@@ -41,7 +41,7 @@ class HelpTask extends RunKitTask {
       this.printTaskList(task, 0);
       this.log(''); // <-- blank line for clarity
     });
-    this.log('----- End runkit Help Display ------');
+    this.log('----- End taskkit Help Display ------');
     return allDone();
   }
 }

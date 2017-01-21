@@ -1,17 +1,17 @@
 {
-  "name": "runkit",
+  "name": "taskkit",
   "version": "0.0.8",
   "description": "Task runner",
   "main": "index.js",
   "bin": {
-    "runkit": "bin.js"
+    "taskkit": "bin.js"
   },
   "scripts": {
     "test": "tape test/test.*.js | tap-spec"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firstandthird/runkit.git"
+    "url": "git+https://github.com/firstandthird/taskkit.git"
   },
   "keywords": [
     "task",
@@ -21,12 +21,12 @@
   "author": "First+Third <code@firstandthird.com> (http://firstandthird.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firstandthird/runkit/issues"
+    "url": "https://github.com/firstandthird/taskkit/issues"
   },
-  "homepage": "https://github.com/firstandthird/runkit#readme",
+  "homepage": "https://github.com/firstandthird/taskkit#readme",
   "dependencies": {
     "async": "^2.1.2",
-    "runkit-task": "0.0.10",
+    "taskkit-task": "0.0.10",
     "confi": "4.1.0",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
