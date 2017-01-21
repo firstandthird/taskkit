@@ -1,4 +1,11 @@
 
+0.0.9 / 2017-01-20
+==================
+
+  * fixed reading from package.json
+  * updated taskkit-task version
+  * change to taskkit / taskkit-task
+
 0.0.8 / 2017-01-18
 ==================
 
