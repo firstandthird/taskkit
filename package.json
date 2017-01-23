@@ -40,7 +40,8 @@
     "eslint-config-firstandthird": "^3.0.2",
     "eslint-plugin-import": "^2.2.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.6.2"
+    "tape": "^4.6.2",
+    "taskkit-shell": "0.0.3"
   },
   "eslintConfig": {
     "extends": "firstandthird"

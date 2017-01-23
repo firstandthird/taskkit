@@ -1,0 +1,10 @@
+tasks:
+  ls: 'taskkit-shell'
+  disabled: 'taskkit-shell2'
+  default:
+    - 'ls'
+    - 'disabled'
+ls:
+  command: 'ls'
+disabled:
+  enabled: false
