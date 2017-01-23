@@ -49,6 +49,7 @@ const main = (options) => {
   });
   context.CONFIGDIR = configPath;
 
+  const start = new Date().getTime();
   async.autoInject({
     loadConfig(done) {
       const config = new LoadConfig(name, env, configPaths, context);
@@ -80,6 +81,9 @@ const main = (options) => {
     if (err) {
       log([name, 'error'], err);
     }
+    const end = new Date().getTime();
+    const duration = (end - start) / 1000;
+    log([name], `Finished all ${duration} seconds`);
   });
 };
 
