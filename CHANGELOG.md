@@ -1,4 +1,11 @@
 
+0.0.10 / 2017-01-23
+==================
+
+  * added an example
+  * do task enabled check on the load-task level
+  * better error messaging for tasks that aren't found
+
 0.0.9 / 2017-01-20
 ==================
 
