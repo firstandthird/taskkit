@@ -1,4 +1,10 @@
 
+0.0.11 / 2017-01-23
+==================
+
+  * report what task is running and how long it took
+  * report time the entire task took
+
 0.0.10 / 2017-01-23
 ==================
 
