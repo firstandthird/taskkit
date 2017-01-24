@@ -27,7 +27,7 @@
   "dependencies": {
     "async": "^2.1.2",
     "taskkit-task": "0.0.11",
-    "confi": "4.1.0",
+    "confi": "4.1.1",
     "logr": "^1.16.0",
     "logr-cli-fancy": "0.1.0",
     "parent-require": "^1.0.0",
