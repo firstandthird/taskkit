@@ -32,7 +32,7 @@
     "parent-require": "^1.0.0",
     "purdy": "^2.2.0",
     "runtask": "0.0.5",
-    "taskkit-task": "0.0.11",
+    "taskkit-task": "0.0.13",
     "yargs": "^6.5.0"
   },
   "devDependencies": {
