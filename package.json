@@ -1,6 +1,6 @@
 {
   "name": "taskkit",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Task runner",
   "main": "index.js",
   "bin": {
