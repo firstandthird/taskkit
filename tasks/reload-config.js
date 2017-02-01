@@ -13,6 +13,7 @@ class ReloadConfigTask extends TaskKitTask {
       this.hasInit = true;
       return allDone();
     }
+    // needs to reload the main config:
     const config = this.kit.loadConfig.get();
     Object.keys(this.kit.runner.tasks).forEach((taskName) => {
       const task = this.kit.runner.tasks[taskName];
@@ -21,6 +22,9 @@ class ReloadConfigTask extends TaskKitTask {
         task.updateOptions(taskConfig);
       }
     });
+    if (!this.options.taskOnUpdate) {
+      return this.log(['warning'], 'You should set reloadConfig.taskOnUpdate to the name of a task you want to execute when config is updated');
+    }
     this.kit.runner.run(this.options.taskOnUpdate, allDone);
   }
 }
