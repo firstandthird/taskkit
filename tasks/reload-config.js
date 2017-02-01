@@ -22,7 +22,7 @@ class ReloadConfigTask extends TaskKitTask {
         task.updateOptions(taskConfig);
       }
     });
-    if (this.kit.runner.tasks[this.options.taskOnUpdate]) {
+    if (!this.options.taskOnUpdate) {
       return this.log('Warning: You should set reloadConfig.taskOnUpdate to the name of a task you want to execute when config is updated');
     }
     this.kit.runner.run(this.options.taskOnUpdate, allDone);
