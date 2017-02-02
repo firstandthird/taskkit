@@ -41,7 +41,7 @@
     "eslint-plugin-import": "^2.2.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.2",
-    "taskkit-shell": "0.0.4"
+    "taskkit-shell": "0.0.5"
   },
   "eslintConfig": {
     "extends": "firstandthird"
