@@ -1,10 +1,14 @@
+crashOnError: true
 tasks:
   ls: 'taskkit-shell'
   disabled: 'taskkit-shell2'
   default:
     - 'ls'
     - 'disabled'
+  fail: 'taskkit-shell'
 ls:
   command: 'ls'
+bad:
+  command: 'asdasdasd'
 disabled:
   enabled: false

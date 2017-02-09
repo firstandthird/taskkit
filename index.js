@@ -79,6 +79,9 @@ const main = (options) => {
     }
   }, (err, results) => {
     if (err) {
+      if (results.config && results.config.crashOnError === true) {
+        throw err;
+      }
       log([name, 'error'], err);
     }
     const end = new Date().getTime();
