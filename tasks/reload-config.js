@@ -23,7 +23,7 @@ class ReloadConfigTask extends TaskKitTask {
       }
     });
     if (!this.options.taskOnUpdate) {
-      this.kit.runner('default');
+      return this.kit.runner.run('default', allDone);
     }
     this.kit.runner.run(this.options.taskOnUpdate, allDone);
   }
