@@ -26,23 +26,24 @@
   },
   "homepage": "https://github.com/firstandthird/taskkit#readme",
   "dependencies": {
-    "async": "^2.1.2",
-    "confi": "^4.1.1",
-    "logr": "^1.16.0",
-    "logr-cli-fancy": "0.1.0",
-    "parent-require": "^1.0.0",
-    "purdy": "^2.2.0",
+    "async": "2.1.5",
+    "confi": "5.0.0",
+    "logr": "2.0.0-beta.2",
+    "logr-cli-fancy": "0.2.0",
+    "logr-reporter-bell": "0.0.1",
+    "parent-require": "1.0.0",
+    "purdy": "2.2.0",
     "runtask": "0.0.5",
-    "taskkit-task": "0.0.13",
-    "yargs": "^6.5.0"
+    "taskkit-task": "0.0.14",
+    "yargs": "6.6.0"
   },
   "devDependencies": {
-    "eslint": "^3.10.2",
-    "eslint-config-firstandthird": "^3.0.2",
-    "eslint-plugin-import": "^2.2.0",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.6.2",
-    "taskkit-shell": "0.0.4"
+    "eslint": "3.16.1",
+    "eslint-config-firstandthird": "3.3.0",
+    "eslint-plugin-import": "2.2.0",
+    "tap-spec": "4.1.1",
+    "tape": "4.6.3",
+    "taskkit-shell": "0.1.0"
   },
   "eslintConfig": {
     "extends": "firstandthird"

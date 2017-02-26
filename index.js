@@ -7,10 +7,14 @@ const loadTasks = require('./lib/load-tasks');
 const async = require('async');
 const LoadConfig = require('./lib/load-config');
 
-const log = new Logr({
-  type: 'cli-fancy',
+const log = Logr.createLogger({
   reporters: {
-    'cli-fancy': require('logr-cli-fancy')
+    cliFancy: {
+      reporter: require('logr-cli-fancy')
+    },
+    bell: {
+      reporter: require('logr-reporter-bell')
+    }
   }
 });
 
