@@ -86,7 +86,6 @@ const main = (options) => {
       if (results.config && results.config.crashOnError === true) {
         throw err;
       }
-      log([name, 'error'], err);
     }
     const end = new Date().getTime();
     const duration = (end - start) / 1000;
