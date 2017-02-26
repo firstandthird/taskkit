@@ -7,7 +7,8 @@
     "taskkit": "bin.js"
   },
   "scripts": {
-    "test": "tape test/test.*.js | tap-spec"
+    "test": "tape test/test.*.js | tap-spec",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
