@@ -26,15 +26,15 @@
   },
   "homepage": "https://github.com/firstandthird/taskkit#readme",
   "dependencies": {
-    "async": "2.1.5",
-    "confi": "5.0.0",
-    "logr": "2.0.0-beta.2",
-    "logr-cli-fancy": "0.2.0",
+    "async": "^2.4.1",
+    "confi": "^6.1.0",
+    "logr": "^2.1.0",
+    "logr-cli-fancy": "^0.2.0",
     "logr-reporter-bell": "0.0.1",
     "parent-require": "1.0.0",
     "purdy": "2.2.0",
     "runtask": "0.0.5",
-    "taskkit-task": "0.0.14",
+    "taskkit-task": "^1.0.1",
     "yargs": "6.6.0"
   },
   "devDependencies": {

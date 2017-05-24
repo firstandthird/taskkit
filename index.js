@@ -60,7 +60,7 @@ const main = (options) => {
       done(null, config);
     },
     config(loadConfig, done) {
-      done(null, loadConfig.get());
+      loadConfig.get(done);
     },
     task(done) {
       let task = '';
