@@ -6,7 +6,7 @@ const Logr = require('logr');
 const loadTasks = require('./lib/load-tasks');
 const async = require('async');
 const LoadConfig = require('./lib/load-config');
-
+const fs = require('fs');
 const log = Logr.createLogger({
   reporters: {
     cliFancy: {
@@ -41,9 +41,8 @@ const main = (options) => {
   const context = options.context || {};
   const name = options.name || 'taskkit';
   const configPath = argv.config || path.join(process.cwd(), name);
-  const version = options.version || require('./package.json').version;
+
   const env = argv.env;
-  log([name], `Using config directory: ${configPath}, environment is "${env}", version is ${version}`);
 
   configPaths.push(configPath);
   configPaths.push({
@@ -55,7 +54,19 @@ const main = (options) => {
 
   const start = new Date().getTime();
   async.autoInject({
-    loadConfig(done) {
+    version(done) {
+      if (options.version) {
+        return done(null, options.version);
+      }
+      fs.exists('./package.json', (exists) => {
+        if (!exists) {
+          return done(null, 'unknown');
+        }
+        return done(null, require('./package.json').version);
+      });
+    },
+    loadConfig(version, done) {
+      log([name], `Using config directory: ${configPath}, environment is "${env}", version is ${version}`);
       const config = new LoadConfig(name, env, configPaths, context);
       done(null, config);
     },
