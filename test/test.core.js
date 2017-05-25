@@ -30,26 +30,25 @@ tap.test(' loads and runs the default task with printout', (t) => {
 });
 
 tap.test(' loads and runs a named task with printout', (t) => {
-  main({ }, { _: ['ls'], env: 'dev', config: path.join(__dirname, 'conf') });
+  main({ }, { _: 'ls', env: 'dev', config: path.join(__dirname, 'conf') });
   setTimeout(() => {
     t.equal(results.length, 6);
     t.notEqual(results[0].indexOf('environment is "dev"'), -1);
     t.notEqual(results[1].indexOf('taskkit  ::  Running ls...'), -1);
     t.notEqual(results[2].indexOf('ls  ::  Running ls...'), -1);
-    t.notEqual(results[3].indexOf('bin.js\nexample\nindex.js\nlib\nnode_modules\npackage.json\nREADME.md\ntasks\ntest\n'), -1);
+    t.notEqual(results[3].indexOf('bin.js'), -1);
+    t.notEqual(results[3].indexOf('node_modules'), -1);
+    t.notEqual(results[3].indexOf('index.js'), -1);
     t.notEqual(results[4].indexOf('ls  ::  Finished in'), -1);
     t.notEqual(results[5].indexOf('taskkit  ::  Finished all'), -1);
     t.end();
   }, 1500);
 });
 
-//
-// tap.test(' does not run disabled tasks', (t) => {
-//   main({});
-//   t.end();
-// });
-//
-// tap.test('can pull version from package.json', (t) => {
-//   main({});
-//   t.end();
-// });
+tap.test(' overloads version # when passed', (t) => {
+  main({ version: '1.0.0' }, { _: [], env: 'dev', config: path.join(__dirname, 'conf') });
+  setTimeout(() => {
+    t.notEqual(results[0].indexOf('version is 1.0.0'), -1);
+    t.end();
+  }, 1500);
+});

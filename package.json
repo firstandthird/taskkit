@@ -7,7 +7,7 @@
     "taskkit": "bin.js"
   },
   "scripts": {
-    "test": "tap test/test.*.js",
+    "test": "tap test/test.*.js --cov",
     "lint": "eslint ."
   },
   "repository": {
