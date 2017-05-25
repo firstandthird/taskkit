@@ -7,7 +7,7 @@
     "taskkit": "bin.js"
   },
   "scripts": {
-    "test": "tape test/test.*.js | tap-spec",
+    "test": "tap test/test.*.js",
     "lint": "eslint ."
   },
   "repository": {
@@ -41,8 +41,7 @@
     "eslint": "3.16.1",
     "eslint-config-firstandthird": "3.3.0",
     "eslint-plugin-import": "2.2.0",
-    "tap-spec": "4.1.1",
-    "tape": "4.6.3",
+    "tap": "^10.3.2",
     "taskkit-shell": "0.1.0"
   },
   "eslintConfig": {

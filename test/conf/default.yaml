@@ -1,0 +1,7 @@
+crashOnError: true
+tasks:
+  ls: 'taskkit-shell'
+  default:
+    - 'ls'
+ls:
+  command: 'ls'

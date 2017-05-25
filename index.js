@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 'use strict';
 const path = require('path');
-const yargs = require('yargs');
 const Logr = require('logr');
 const loadTasks = require('./lib/load-tasks');
 const async = require('async');
@@ -18,30 +17,12 @@ const log = Logr.createLogger({
   }
 });
 
-const argv = yargs
-  .option('init', {
-    describe: 'create a new project directory ',
-    default: false,
-    type: 'string'
-  })
-  .option('env', {
-    describe: 'environment (eg "dev", "staging", "prod")',
-    default: 'dev'
-  })
-  .option('config', {
-    describe: 'a path to your configuration files'
-  })
-  .help('h')
-  .env(true)
-  .argv;
-
-const main = (options) => {
+const main = (options, argv) => {
   options = options || {};
   const configPaths = options.configPaths || [];
   const context = options.context || {};
   const name = options.name || 'taskkit';
   const configPath = argv.config || path.join(process.cwd(), name);
-
   const env = argv.env;
 
   configPaths.push(configPath);
@@ -83,13 +64,13 @@ const main = (options) => {
       } else {
         task = cmd;
       }
-      log([name], `Running ${task}...`);
       done(null, task);
     },
     runner(config, loadConfig, done) {
       loadTasks(config, log, loadConfig, done);
     },
     runTask(runner, task, done) {
+      log([name], `Running ${task}...`);
       runner.run(task, done);
     }
   }, (err, results) => {
