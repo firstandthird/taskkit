@@ -4,11 +4,6 @@ const main = require('./index.js');
 const yargs = require('yargs');
 
 const argv = yargs
-  .option('init', {
-    describe: 'create a new project directory ',
-    default: false,
-    type: 'string'
-  })
   .option('env', {
     describe: 'environment (eg "dev", "staging", "prod")',
     default: 'dev'
@@ -17,6 +12,11 @@ const argv = yargs
     describe: 'a path to your configuration files'
   })
   .help('h')
-  // .env(true)
+  .env(true)
   .argv;
-main({}, argv);
+
+module.exports.argv = argv;
+// if run from command line:
+if (process.argv[1].endsWith('bin.js')) {
+  main({}, argv);
+}

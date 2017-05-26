@@ -18,6 +18,10 @@ const log = Logr.createLogger({
 });
 
 const main = (options, argv) => {
+  // if caller didn't pass their own argv, get it for them:
+  if (!argv) {
+    argv = require('./bin.js').argv;
+  }
   options = options || {};
   const configPaths = options.configPaths || [];
   const context = options.context || {};
