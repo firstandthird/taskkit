@@ -19,5 +19,4 @@ const argv = yargs
   .help('h')
   // .env(true)
   .argv;
-console.log(argv)
 main({}, argv);
