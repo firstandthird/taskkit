@@ -14,18 +14,22 @@ class ReloadConfigTask extends TaskKitTask {
       return allDone();
     }
     // needs to reload the main config:
-    const config = this.kit.loadConfig.get();
-    Object.keys(this.kit.runner.tasks).forEach((taskName) => {
-      const task = this.kit.runner.tasks[taskName];
-      if (task instanceof TaskKitTask) {
-        const taskConfig = config[taskName];
-        task.updateOptions(taskConfig);
+    this.kit.loadConfig.get((err, config) => {
+      if (err) {
+        return allDone(err);
       }
+      Object.keys(this.kit.runner.tasks).forEach((taskName) => {
+        const task = this.kit.runner.tasks[taskName];
+        if (task instanceof TaskKitTask) {
+          const taskConfig = config[taskName];
+          task.updateOptions(taskConfig);
+        }
+      });
+      if (!this.options.taskOnUpdate) {
+        return this.kit.runner.run('default', allDone);
+      }
+      this.kit.runner.run(this.options.taskOnUpdate, allDone);
     });
-    if (!this.options.taskOnUpdate) {
-      return this.kit.runner.run('default', allDone);
-    }
-    this.kit.runner.run(this.options.taskOnUpdate, allDone);
   }
 }
 module.exports = ReloadConfigTask;
