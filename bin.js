@@ -17,6 +17,6 @@ const argv = yargs
 
 module.exports.argv = argv;
 // if run from command line:
-if (process.argv[1].endsWith('bin.js')) {
+if (!module.parent) {
   main({}, argv);
 }
