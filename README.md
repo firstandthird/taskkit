@@ -1,1 +1,1 @@
-# taskkit
+# taskkit [![Build Status](https://travis-ci.org/firstandthird/taskkit.svg?branch=update)](https://travis-ci.org/firstandthird/taskkit) [![Coverage Status](https://coveralls.io/repos/github/firstandthird/taskkit/badge.svg?branch=master)](https://coveralls.io/github/firstandthird/taskkit?branch=master)
