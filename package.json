@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "tap test/test.*.js --cov",
+    "example": "cd example && npm start",
     "lint": "eslint ."
   },
   "repository": {
@@ -33,6 +34,7 @@
     "logr-reporter-bell": "0.0.1",
     "parent-require": "1.0.0",
     "purdy": "2.2.0",
+    "runshell": "^0.5.0",
     "runtask": "0.0.5",
     "taskkit-task": "^1.0.1",
     "yargs": "6.6.0"

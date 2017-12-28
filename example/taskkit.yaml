@@ -4,7 +4,7 @@ tasks:
   disabled: 'taskkit-shell2'
   default:
     - 'ls'
-    - 'disabled'
+    #- 'disabled'
   fail: 'taskkit-shell'
 ls:
   command: 'ls'
