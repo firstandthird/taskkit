@@ -1,6 +1,6 @@
 const getTasks = require('./lib/getTasks');
 const getConfig = require('./lib/getConfig');
-const main = async (task) => {
+const main = async (task = 'default') => {
   const config = await getConfig();
 
   const runner = getTasks(config);
