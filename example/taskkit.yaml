@@ -4,6 +4,8 @@ tasks:
   disabled: 'taskkit-shell2'
   default:
     - 'ls'
+    - 'help'
+    - 'config'
     #- 'disabled'
   fail: 'taskkit-shell'
 ls:
