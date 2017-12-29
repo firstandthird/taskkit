@@ -1,11 +1,13 @@
 crashOnError: true
 tasks:
   ls: 'taskkit-shell'
+  watch: 'taskkit-watcher'
   disabled: 'taskkit-shell2'
   default:
     - 'ls'
     - 'help'
     - 'config'
+    - 'watch'
     #- 'disabled'
   fail: 'taskkit-shell'
 ls:
@@ -14,3 +16,11 @@ bad:
   command: 'asdasdasd'
 disabled:
   enabled: false
+watch:
+  debug: true
+  ignore:
+    - '.git'
+    - 'node_modules'
+  files:
+    '**/*': 'ls'
+
