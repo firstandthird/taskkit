@@ -1,6 +1,7 @@
 crashOnError: true
 tasks:
-  ls: 'taskkit-shell'
-ls:
-  command: 'ls'
+  disabled: '{{CWD}}/test/taskkit-test.js'
+disabled:
+  outputFile: 'disabled-output.js'
+  command: 'disabled'
   enabled: false

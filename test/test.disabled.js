@@ -2,18 +2,30 @@
 const tap = require('tap');
 const main = require('../index.js');
 const path = require('path');
+const fs = require('fs');
+
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const oldLog = console.log;
 let results = [];
 
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+tap.beforeEach((done) => {
+  results = [];
+  console.log = (input) => {
+    results.push(input);
+  };
+  done();
+});
+
+tap.afterEach((done) => {
+  done();
+});
 
 tap.test(' does not run disabled tasks', async(t) => {
   process.env.TASKKIT_PREFIX = 'default';
   process.env.TASKKIT_CONFIG = path.join(__dirname, 'conf_disabled');
-  main({ task: ['ls'], env: 'dev', path: path.join(__dirname, 'conf_disabled') });
+  await main('disabled');
   await wait(1500);
-  // t.equal(results.length, 5);
-  // t.notEqual(results[3].indexOf('ls is disabled, skipping'), -1);
+  t.equal(results[0].endsWith('Task disabled is disabled, skipping...'), true);
   t.end();
 });
