@@ -1,0 +1,11 @@
+crashOnError: true
+tasks:
+  ls: 'taskkit-shell'
+  free: 'taskkit-shell'
+  default:
+    - 'ls'
+    - 'free'
+ls:
+  command: 'asdf'
+free:
+  command: 'free'

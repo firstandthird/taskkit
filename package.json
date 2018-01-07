@@ -35,8 +35,8 @@
     "parent-require": "1.0.0",
     "purdy": "2.2.0",
     "runshell": "^1.0.0",
-    "runtask": "0.0.5",
-    "taskkit-task": "^1.0.1",
+    "runtask": "^1.0.0",
+    "taskkit-task": "^2.0.1",
     "yargs": "6.6.0"
   },
   "devDependencies": {
