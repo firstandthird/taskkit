@@ -1,7 +1,0 @@
-crashOnError: true
-tasks:
-  disabled: '{{CWD}}/test/taskkit-test.js'
-disabled:
-  outputFile: 'disabled-output.js'
-  command: 'disabled'
-  enabled: false

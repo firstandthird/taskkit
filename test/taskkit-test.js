@@ -11,7 +11,6 @@ class TestTask extends TaskKitTask {
     const outputFileName = path.join(__dirname, this.options.outputFile);
     this.log(`Test task writing to ${outputFileName}`);
     fs.writeFile(outputFileName, JSON.stringify(this), allDone);
-    allDone();
   }
 }
 module.exports = TestTask;
