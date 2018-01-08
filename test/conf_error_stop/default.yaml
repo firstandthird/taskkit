@@ -1,11 +1,11 @@
 crashOnError: true
 tasks:
   ls: 'taskkit-shell'
-  free: '{{CWD}}/test/taskkit-test.js'
+  free: 'taskkit-shell'
   default:
+    - 'ls'
     - 'free'
 ls:
-  command: 'ls'
+  command: 'asdf'
 free:
   command: 'free'
-  outputFile: 'free-output.js'
