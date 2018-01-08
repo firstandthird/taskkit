@@ -21,14 +21,14 @@ class HelpTask extends TaskKitTask {
     }
   }
 
-  execute(allDone) {
+  execute() {
     this.log('Registered tasks: ');
-    Object.keys(this.kit.config.tasks).forEach((taskName) => {
+    Object.keys(this.fullConfig.tasks).forEach((taskName) => {
       this.log(`  ${taskName}`);
     });
     this.log('Named Task Sets:');
-    Object.keys(this.kit.config.tasks).forEach((taskName) => {
-      const task = this.kit.config.tasks[taskName];
+    Object.keys(this.fullConfig.tasks).forEach((taskName) => {
+      const task = this.fullConfig.tasks[taskName];
       if (!task.forEach) {
         return;
       }
@@ -36,7 +36,6 @@ class HelpTask extends TaskKitTask {
       this.printTaskList(task, 0);
       this.log(''); // <-- blank line for clarity
     });
-    return allDone();
   }
 }
 module.exports = HelpTask;

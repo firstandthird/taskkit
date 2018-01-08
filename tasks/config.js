@@ -7,15 +7,14 @@ class ConfigTask extends TaskKitTask {
     return 'Prints out the config';
   }
 
-  execute(allDone) {
-    const clone = Object.assign({}, this.kit.config);
+  execute() {
+    const clone = Object.assign({}, this.fullConfig);
     delete clone.ENV;
 
     purdy(clone, {
       depth: null,
       arrayIndex: false
     });
-    return allDone();
   }
 }
 module.exports = ConfigTask;
