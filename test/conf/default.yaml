@@ -8,4 +8,4 @@ ls:
   command: 'ls'
 free:
   command: 'free'
-  outputFile: 'free-output.js'
+  outputFile: 'free-output.json'

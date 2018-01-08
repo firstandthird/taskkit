@@ -1,0 +1,1 @@
+{"name":"free","options":{"command":"free","outputFile":"free-output.json"},"fullConfig":{"crashOnError":true,"tasks":{"ls":"taskkit-shell","free":"/var/work/dev/taskkit/test/taskkit-test.js","default":["free"]},"ls":{"command":"ls"},"free":{"command":"free","outputFile":"free-output.json"},"env":"dev"}}

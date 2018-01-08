@@ -7,7 +7,7 @@
     "taskkit": "bin.js"
   },
   "scripts": {
-    "test": "tap test/test.*.js --cov",
+    "test": "eslint . && tap test/test.*.js --cov",
     "example": "cd example && npm start",
     "lint": "eslint ."
   },

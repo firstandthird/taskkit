@@ -3,9 +3,6 @@ const tap = require('tap');
 const main = require('../index.js');
 const path = require('path');
 
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-const oldLog = console.log;
 let results = [];
 
 tap.beforeEach((done) => {
