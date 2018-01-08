@@ -15,8 +15,21 @@ const argv = yargs
   .env(true)
   .argv;
 
-module.exports.argv = argv;
-// if run from command line:
-if (!module.parent) {
-  main({}, argv);
+if (argv.config) {
+  process.env.TASKKIT_CONFIG = argv.config;
 }
+
+if (argv.env) {
+  process.env.NODE_ENV = argv.config;
+}
+
+let task = '';
+const cmd = argv._;
+if (cmd.length === 0) {
+  task = 'default';
+} else if (cmd.length === 1) {
+  task = argv._[0];
+} else {
+  task = cmd;
+}
+main(task);

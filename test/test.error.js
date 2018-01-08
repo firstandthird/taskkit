@@ -2,6 +2,7 @@
 const tap = require('tap');
 const main = require('../index.js');
 const path = require('path');
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const oldLog = console.log;
 let results = [];
@@ -18,10 +19,28 @@ tap.afterEach((done) => {
   done();
 });
 
-tap.test(' can keep running when an error occurs in a task', (t) => {
-  main({ version: '1.0.0' }, { _: [], env: 'dev', config: path.join(__dirname, 'conf_error_continue') });
-  setTimeout(() => {
-    t.equal(results.length, 8);
+tap.test('can keep running when an error occurs in a task', async(t) => {
+  process.env.TASKKIT_PREFIX = 'default';
+  process.env.TASKKIT_CONFIG = path.join(__dirname, 'conf_error_continue');
+  // will log the error, but not throw it up the chain:
+  try {
+    await main();
+  } catch (e) {
+    t.fail();
+  }
+  t.notEqual(results[2].indexOf('throw err'), -1, 'logs the error but does not throw it to top level');
+  t.end();
+});
+
+tap.test('can throw error up when an error occurs in a task', async(t) => {
+  process.env.TASKKIT_PREFIX = 'default';
+  process.env.TASKKIT_CONFIG = path.join(__dirname, 'conf_error_stop');
+  // error will actually throw
+  try {
+    await main();
+  } catch (e) {
     t.end();
-  }, 1500);
+    return;
+  }
+  t.fail();
 });

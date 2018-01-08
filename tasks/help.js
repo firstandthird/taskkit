@@ -22,18 +22,13 @@ class HelpTask extends TaskKitTask {
   }
 
   execute(allDone) {
-    this.log(`-----    taskkit Version ${require('../package.json').version} Help Display ------`);
-    this.log('(set help.enabled to "false" to hide this info )');
     this.log('Registered tasks: ');
-    Object.keys(this.kit.runner.tasks).forEach((taskName) => {
-      const task = this.kit.runner.tasks[taskName];
-      if (task.options) {
-        this.log(`  "${task.name}": ${task.description}`);
-      }
+    Object.keys(this.kit.config.tasks).forEach((taskName) => {
+      this.log(`  ${taskName}`);
     });
     this.log('Named Task Sets:');
-    Object.keys(this.kit.runner.tasks).forEach((taskName) => {
-      const task = this.kit.runner.tasks[taskName];
+    Object.keys(this.kit.config.tasks).forEach((taskName) => {
+      const task = this.kit.config.tasks[taskName];
       if (!task.forEach) {
         return;
       }
@@ -41,7 +36,6 @@ class HelpTask extends TaskKitTask {
       this.printTaskList(task, 0);
       this.log(''); // <-- blank line for clarity
     });
-    this.log('----- End taskkit Help Display ------');
     return allDone();
   }
 }

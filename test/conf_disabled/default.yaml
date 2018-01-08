@@ -1,6 +1,0 @@
-crashOnError: true
-tasks:
-  ls: 'taskkit-shell'
-ls:
-  command: 'ls'
-  enabled: false
