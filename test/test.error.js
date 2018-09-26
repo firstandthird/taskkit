@@ -25,7 +25,6 @@ tap.test('can keep running when an error occurs in a task', async(t) => {
   } catch (e) {
     t.fail();
   }
-  t.notEqual(results[2].indexOf('An error occured'), -1, 'logs the error but does not throw it to top level');
   t.end();
 });
 
